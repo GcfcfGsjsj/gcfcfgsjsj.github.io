@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Clock</title>
+    <link href="./icon/my-icon-3.ico" rel="icon" type="image/x-ico" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body onload="start()">
+    <div id="clock">
+      <h2>Now the time is</h2>
+      <div id="time">
+        <div><span id="hour">00</span><span>Hours</span></div>
+        <div><span id="minute">00</span><span>Minutes</span></div>
+        <div><span id="second">00</span><span>Seconds</span></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+      var check = (value) => {
+        return value < 10 ? `0${value}` : value;
+      };
+
+      var displayTime = () => {
+        var clockHour = document.getElementById("hour");
+        var clockMinute = document.getElementById("minute");
+        var clockSecond = document.getElementById("second");
+        var date = new Date();
+        clockHour.innerHTML = `${check(date.getHours())}`;
+        clockMinute.innerHTML = `${check(date.getMinutes())}`;
+        clockSecond.innerHTML = `${check(date.getSeconds())} `;
+      };
+
+      var start = () => {
+        setInterval(displayTime, 1000);
+      };
+
+    </script>
+  </body>
+</html>
